@@ -1,0 +1,46 @@
+TRAIN_CROP_SIZE: (512, 512) # (width, height), for unpadding rangescaling and stepscaling
+EVAL_CROP_SIZE: (512, 512) # (width, height), for unpadding rangescaling and stepscaling
+AUG:
+    AUG_METHOD: "rangescaling" # choice unpadding rangescaling and stepscaling
+    FIX_RESIZE_SIZE: (512, 512) # (width, height), for unpadding
+
+    INF_RESIZE_VALUE: 512  # for rangescaling
+    MAX_RESIZE_VALUE: 512  # for rangescaling
+    MIN_RESIZE_VALUE: 512  # for rangescaling
+
+    MAX_SCALE_FACTOR: 1.25  # for stepscaling
+    MIN_SCALE_FACTOR: 0.75  # for stepscaling
+    SCALE_STEP_SIZE: 0.25  # for stepscaling
+    MIRROR: False
+    RICH_CROP: 
+        ENABLE: False 
+BATCH_SIZE: 1
+DATASET:
+    DATA_DIR: "./dataset/meter_paddleseg_414/"
+    IMAGE_TYPE: "rgb"  # choice rgb or rgba
+    NUM_CLASSES: 3
+    TRAIN_FILE_LIST: "./dataset/meter_paddleseg_414/train.txt"
+    VAL_FILE_LIST: "./dataset/meter_paddleseg_414/val.txt"
+    TEST_FILE_LIST: "./dataset/meter_paddleseg_414/val.txt"
+    VIS_FILE_LIST: "./dataset/meter_paddleseg_414/val.txt"
+    IGNORE_INDEX: 255
+    SEPARATOR: " "
+FREEZE:
+    MODEL_FILENAME: "__model__"
+    PARAMS_FILENAME: "__params__"
+MODEL:
+    MODEL_NAME: "deeplabv3p"
+    DEFAULT_NORM_TYPE: "bn"
+    DEEPLAB:
+        BACKBONE: "xception_65"
+TRAIN:
+    PRETRAINED_MODEL_DIR: "./pretrained_model/deeplabv3p_xception65_bn_coco/"
+    MODEL_SAVE_DIR: "./saved_model/deeplabv3p_xception65_meter/"
+    SNAPSHOT_EPOCH: 25
+TEST:
+    TEST_MODEL: "./saved_model/deeplabv3p_xception65_meter/final"
+SOLVER:
+    NUM_EPOCHS: 500
+    LR: 0.002
+    LR_POLICY: "poly"
+    OPTIMIZER: "sgd"
