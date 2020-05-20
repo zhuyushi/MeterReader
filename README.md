@@ -4,7 +4,7 @@
 
 第一步使用目标检测算法检测待识别表具区域，第二步使用语义分割算法分割出表具的刻度和指针，第三步计算表具读数。
 
-![](https://github.com/zhuyushi/MeterReader/raw/master/png/system.png) 
+![](https://github.com/zhuyushi/MeterReader/blob/master/png/system.png) 
 
 * 目标检测<br>
   平衡考虑算法的推理速度和检测效果，目标检测算法采用YOLOv3模型实现。目标检测部分只做检测不对表具进行分类。 
