@@ -27,12 +27,50 @@
 
 * 数据集 <br>
   标注工具    ：Labelme <br>
-  数据集格式  ：coco <br>
+  数据集格式 ：coco <br>
 
 * 模型训练 <br>
   训练工具    ：使用百度models提供的PaddleDetection工具 <br> 
   模型选择    ：yolov3_darknet53 <br>
-  预训练模型  ：百度提供的DarkNet53_pretrained.tar <br>
+  预训练模型 ：百度提供的DarkNet53_pretrained.tar <br>
 
 * 模型评估 <br>
-  使用百度PaddleDetection配套的评估程序进行评估。YOLOv3目标检测算法的评估结果（coco评估标准）: mAP[.5:.9]为94.7%，
+  使用百度PaddleDetection配套的评估程序进行评估。
+  目标检测算法的评估结果（coco评估标准）: mAP[.5:.9]为94.7%。 <br>
+  
+## 语义分割
+
+### 语义分割方案 
+
+1、表具刻度与指针都较为细小，采用效果较好的DeepLabv3+分割模型。 
+
+2、目标检测表具图像区域作为语义分割模型的输入。
+
+### 模型训练与评估
+
+* 数据集 <br>
+  标注工具    ：Labelme（标注类型：line） <br>
+  数据集格式 ：PaddleSeg <br>
+
+* 模型训练 <br>
+  训练工具    ：使用百度models提供的PaddleSeg工具 <br>
+  模型选择    ： deeplabv3p_xception65 <br>
+  预训练模型 ：百度提供的deeplabv3p_xception65_bn_coco <br>
+
+* 模型评估 <br>
+  使用百度PaddleSeg配套的评估程序进行评估。 <br>
+  DeepLabv3+语义分割算法的评估结果，刻度和指针的IOU达到了70%以上。 <br>
+
+## 模型部署
+
+本项目目前实现了基于Paddle-Lite在ARM平台上的推理程序，代码位于“inference/arm64-RK3399”中。
+
+* 目标平台 <br>
+  RK3399开发环境 ： CPU（ARMv8） <br>
+
+* 软件环境 <br>
+  操作系统：Ubuntu16.04 <br>
+  基础软件：Paddle-Lite、OpenCV等 <br>
+  开发语言：C++ <br>
+
+
