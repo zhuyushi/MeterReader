@@ -42,8 +42,8 @@
   训练工具    ：使用百度models提供的PaddleDetection工具 <br> 
   模型选择    ：yolov3_darknet53 <br>
   预训练模型 ：百度提供的DarkNet53_pretrained.tar <br>
-  训练配置文件 ：“MeterReader\train\detection\config\yolov3_darknet_d.yml”
-  训练后模型 ：“MeterReader\train\detection\model”
+  训练配置文件 ：“MeterReader\train\detection\config\yolov3_darknet_d.yml” <br>
+  训练后模型 ：“MeterReader\train\detection\model” <br>
 
 * 模型评估 <br>
   使用百度PaddleDetection配套的评估程序进行评估。
@@ -80,8 +80,8 @@
   训练工具    ：使用百度models提供的PaddleSeg工具 <br>
   模型选择    ： deeplabv3p_xception65 <br>
   预训练模型 ：百度提供的deeplabv3p_xception65_bn_coco <br>
-  训练配置文件 ：“MeterReader\train\segmentation\config\deeplabv3p_xception65_meter.yaml”
-  训练后模型 ：“MeterReader\train\segmentation\model”
+  训练配置文件 ：“MeterReader\train\segmentation\config\deeplabv3p_xception65_meter.yaml” <br>
+  训练后模型 ：“MeterReader\train\segmentation\model” <br>
 
 * 模型评估 <br>
   使用百度PaddleSeg配套的评估程序进行评估。 <br>
