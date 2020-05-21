@@ -36,11 +36,13 @@
 * 数据集 <br>
   标注工具    ：Labelme <br>
   数据集格式 ：coco <br>
+  数据集位置 ：“MeterReader\train\detection\dataset\coco_806_901” <br>
 
 * 模型训练 <br>
   训练工具    ：使用百度models提供的PaddleDetection工具 <br> 
   模型选择    ：yolov3_darknet53 <br>
   预训练模型 ：百度提供的DarkNet53_pretrained.tar <br>
+  训练配置文件 ：“MeterReader\train\detection\config\yolov3_darknet_d.yml”
 
 * 模型评估 <br>
   使用百度PaddleDetection配套的评估程序进行评估。
@@ -71,11 +73,13 @@
 * 数据集 <br>
   标注工具    ：Labelme（标注类型：line） <br>
   数据集格式 ：PaddleSeg <br>
+  数据集位置 ：“MeterReader\train\segmentation\dataset\meter_paddleseg_414” <br>
 
 * 模型训练 <br>
   训练工具    ：使用百度models提供的PaddleSeg工具 <br>
   模型选择    ： deeplabv3p_xception65 <br>
   预训练模型 ：百度提供的deeplabv3p_xception65_bn_coco <br>
+  训练配置文件 ：“MeterReader\train\segmentation\config\deeplabv3p_xception65_meter.yaml”
 
 * 模型评估 <br>
   使用百度PaddleSeg配套的评估程序进行评估。 <br>
