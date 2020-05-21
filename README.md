@@ -21,7 +21,7 @@
 
 1、目标检测算法采用YOLOv3模型实现，被检测表具基本没有很小目标的情况，所以根据经验，人工重新设计了锚框的尺寸，以便更加准确的预测目标区域。
 
-2、目标检测部分只对表具进行检测，不进行分类识别表具的单位量程等信息，通过配置的形式输入给推理进程，结合分割结果综合计算表具读数。 
+2、目标检测部分只对表具进行检测，不进行分类识别。表具的类别、单位和量程等信息，通过配置的形式输入给推理进程，结合分割结果综合计算表具读数。 
 
 ### 模型训练与评估 
 
@@ -38,6 +38,16 @@
   使用百度PaddleDetection配套的评估程序进行评估。
   目标检测算法的评估结果（coco评估标准）: mAP[.5:.9]为94.7%。 <br>
   
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/yolov3-estimate.png) 
+
+### 检测结果
+
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/detection-1.png) 
+
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/detection-2.png) 
+
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/detection-3.png) 
+
 ## 语义分割
 
 ### 语义分割方案 
@@ -45,6 +55,8 @@
 1、表具刻度与指针都较为细小，采用效果较好的DeepLabv3+分割模型。 
 
 2、目标检测表具图像区域作为语义分割模型的输入。
+
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/seg.png) 
 
 ### 模型训练与评估
 
@@ -61,9 +73,23 @@
   使用百度PaddleSeg配套的评估程序进行评估。 <br>
   DeepLabv3+语义分割算法的评估结果，刻度和指针的IOU达到了70%以上。 <br>
 
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/deeplabv3-estimate.png) 
+
+### 分割结果
+
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/seg-reasult.png) 
+
+## 读数计算
+
+从语义分割的结果中只能获取到表具指针和刻度的像素分割区域，表具的具体读数还需要结合表具的配置信息（表具种类、单位、量程）进行专门的计算获得，本项目使用的计算方法如下。
+
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/read.png) 
+
 ## 模型部署
 
-本项目目前实现了基于Paddle-Lite在ARM平台上的推理程序，代码位于“inference/arm64-RK3399”中。
+本项目目前实现了基于Paddle-Lite在ARM平台上的推理程序，代码位于“inference/arm64-RK3399”中，代码目录结构如下。
+
+![](https://github.com/zhuyushi/MeterReader/blob/master/image/infer-code.png) 
 
 * 目标平台 <br>
   RK3399开发环境 ： CPU（ARMv8） <br>
