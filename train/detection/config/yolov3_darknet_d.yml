@@ -71,7 +71,7 @@ YoloEvalFeed:
   batch_size: 1
   image_shape: [3, 608, 608]
   dataset:
-    dataset_dir: /home/zhuys/Meter/dataset/coco_806_901
+    dataset_dir: /home/zhuys/Meter/dataset
     annotation: annotations/instance_test.json
     image_dir: test
 
@@ -79,4 +79,4 @@ YoloTestFeed:
   batch_size: 1
   image_shape: [3, 608, 608]
   dataset:
-    annotation: /home/zhuys/Meter/dataset/coco_806_901/annotations/instance_test.json
+    annotation: /home/zhuys/Meter/dataset/annotations/instance_test.json
