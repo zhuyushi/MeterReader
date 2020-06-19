@@ -47,7 +47,7 @@
 
 * 模型评估 <br>
   使用百度PaddleDetection配套的评估程序进行评估。
-  目标检测算法的评估结果（coco评估标准）: mAP[.5:.9]为94.7%。 <br>
+  目标检测算法的评估结果（coco评估标准）: mAP[.5:.9]为94.2%。 <br>
   
 ![image](https://github.com/zhuyushi/MeterReader/blob/master/image/yolov3-estimate.png) 
 
